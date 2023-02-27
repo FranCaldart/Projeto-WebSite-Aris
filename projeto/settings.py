@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import django_heroku
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,16 +26,14 @@ SECRET_KEY = "django-insecure-=7_6%ri$v)=9xo4o54qk01b#(td*s@@t#_@7=mvq+amsgdrd!v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['aris-sc.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    "jazzmin",
     "django.contrib.admin",
-
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -45,21 +42,8 @@ INSTALLED_APPS = [
     "import_export",
     "ncs",
     "django_filters",
-    "contratos",
- 
     ]
 
-JAZZMIN_SETTINGS = {
-    "site_logo": "img/baixados.png",
-    "topmenu_links": [
-
-        # Url that gets reversed (Permissions can be added)
-        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
-
-        # external url that opens in a new window (Permissions can be added)
-        {"name": "Site", "url": "dashboard", "new_window": False},
-        ]
-}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -142,4 +126,4 @@ STATICFILES_DIR = [os.path.join(BASE_DIR,'static')]
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-django_heroku.settings(locals())
+
